@@ -44,6 +44,15 @@ function TodoList() {
 
   return (
     <div className="todo-list">
+      <form>
+      <input
+        type="text"
+        value={text}
+        onChange={e => setText(e.target.value)}
+        placeholder="Ingresa una tarea..."
+      />
+      <button onClick={addTask}>Agregar</button>
+      </form>
       {/* Renderiza la lista de tareas */}
       {tasks.map(task => (
         <div key={task.id} className={`task ${task.completed ? 'completed' : ''}`}>
@@ -53,17 +62,11 @@ function TodoList() {
             onChange={() => toggleCompleted(task.id)}
           />
           <span>{task.text}</span>
-          <button onClick={() => deleteTask(task.id)}>Eliminar</button>
+          <button  onClick={() => deleteTask(task.id)}>Eliminar</button>
         </div>
       ))}
       {/* Agrega un formulario para ingresar nuevas tareas */}
-      <input
-        type="text"
-        value={text}
-        onChange={e => setText(e.target.value)}
-        placeholder="Ingresa una tarea..."
-      />
-      <button onClick={addTask}>Agregar</button>
+      
     </div>
   );
 }
