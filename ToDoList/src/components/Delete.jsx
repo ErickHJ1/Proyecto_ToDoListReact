@@ -1,6 +1,6 @@
 async function deleteData(id) {
     try {
-        const response = await fetch(`http://localhost:3000/api/todo/${id}`,{
+        const response = await fetch(`http://localhost:3000/api/task/${id}`,{
             method:"DELETE",
             headers: {
                 "Content-type": "application/json;",
